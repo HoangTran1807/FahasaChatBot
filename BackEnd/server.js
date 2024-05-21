@@ -6,12 +6,16 @@ require('dotenv').config();
 const cors = require('cors');
 
 
+const corsOptions = {
+    origin: 'http://localhost:3000',
+    optionsSuccessStatus: 200
+}
 
 
 const app = express();
 const port =  process.env.PORT || 8084;
 
-app.use(cors());
+app.use(cors(corsOptions));
 
 app.use('/api/people', peopleRouter);
 app.use('/api/product', productRouter);
