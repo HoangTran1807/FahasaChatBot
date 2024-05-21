@@ -12,21 +12,18 @@ class People{
     }
 
     static async getAll(){
-        return new Promise((resolve, reject) => {
-            sqlConfig.query('SELECT id, name, gender, gmail, username FROM People', (err, result) => {
-                if(err) reject(err);
-                resolve(result.recordset);
-            });
-        });
+        const query = 'SELECT id, name, gender, Email, username FROM People';
+        const peoples = await sqlConfig.query(query);
+        if(peoples.recordset.length === 0) return null;
+        return peoples.recordset;
     }
 
-    static getById(id){
-        return new Promise((resolve, reject) => {
-            sqlConfig.query(`SELECT * FROM People WHERE id = ${id}`, (err, result) => {
-                if(err) reject(err);
-                resolve(result.recordset);
-            });
-        });
+    static async getById(id){
+        const query =  `SELECT * FROM People WHERE id = ${id}`;
+        const people = await sqlConfig.query(query);
+        if(people.recordset.length === 0) return null;
+        return people.recordset;
+
     }
 
 

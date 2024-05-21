@@ -9,40 +9,29 @@ class Author {
   }
 
   static async getAll() {
-    return new Promise((resolve, reject) => {
-      sqlConfig.query("SELECT id, name, description FROM Author", (err, result) => {
-        if (err) reject(err);
-        resolve(result.recordset);
-      });
-    });
+    const query = "SELECT id, name FROM Author";
+    const authors = await sqlConfig.query(query);
+    if (authors.recordset.length === 0) return null;
+    return authors.recordset;
   }
 
-  static getById(id) {
+  static async getById(id) {
     const query = `SELECT * FROM Author WHERE id = ${id}`;
-    try {
-      return new Promise((resolve, reject) => {
-        sqlConfig.query(
-          query,
-          (err, result) => {
-            if (err) reject(err);
-            resolve(result.recordset);
-          }
-        );
-      });
-    } catch (err) {
-      console.log(err);
-    }
+    const author = await sqlConfig.query(query);
+    console.log(author)
+    return author.recordset;
   }
 
-  static getByName(name) {
+  static async getByName(name) {
     const query = `SELECT * FROM Author WHERE name like N'%${name}%'`;
-    //console.log(query)
-    return new Promise((resolve, reject) => {
-        sqlConfig.query( query, (err, result) => {
-            if(err) reject(err);
-            resolve(result.recordset)
-        });
-    });
+    try {
+      const author = await sqlConfig.query(query);
+      if(author.recordset != null)
+        return author.recordset;
+    } catch (error) {
+      console.error(`Error occurred while fetching author by name: ${error}`);
+      return null;
+    }
   }
 }
 

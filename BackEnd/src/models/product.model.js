@@ -1,3 +1,4 @@
+const { query } = require("express");
 const sqlConfig = require("../config/database");
 
 class Product {
@@ -8,49 +9,54 @@ class Product {
     this.stockAvailable = null;
     this.supplier_id = null;
     this.author_id = null;
-
   }
 
   static async getAll() {
-    return new Promise((resolve, reject) => {
-      sqlConfig.query("SELECT id, name, price, stockAvailable, supplier_id,author_id FROM Product", (err, result) => {
-        if (err) reject(err);
-        resolve(result.recordset);
-      });
-    });
+    const query =
+      "SELECT id, name, price, stockAvailable, supplierid, authorid FROM Product";
+    try {
+      const products = await sqlConfig.query(query);
+      return products.recordset;
+    } catch (err) {
+      console.error(`Error occurred while fetching all products: ${err}`);
+      return null;
+    }
   }
 
-  static getById(id) {
-    return new Promise((resolve, reject) => {
-      sqlConfig.query(
-        `SELECT * FROM Product WHERE id = ${id}`,
-        (err, result) => {
-          if (err) reject(err);
-          resolve(result.recordset);
-        }
-      );
-    });
+  static async getById(id) {
+    query = `SELECT * FROM Product WHERE id = ${id}`;
+    try {
+      const product = sqlConfig.query(query);
+      return product.recordset;
+    } catch (err) {
+      console.error(`Error occurred while fetching product by id: ${err}`);
+      return null;
+    }
   }
 
-  static getByName(name) {
+  static async getByName(name) {
     const query = `SELECT * FROM Product WHERE name like N'%${name}%'`;
-    console.log(query);
-    return new Promise((resolve, reject) => {
-      sqlConfig.query(query, (err, result) => {
-        if (err) reject(err);
-        resolve(result.recordset);
-      });
-    });
+
+    try {
+      const product = sqlConfig.query(query);
+      return product.recordset;
+    } catch (err) {
+      console.error(`Error occurred while fetching product by name: ${err}`);
+      return null;
+    }
   }
 
-  static getByAuthorID(authorID){
+  static async getByAuthorID(authorID) {
     const query = `select id, name, price, stockAvailable, supplier_id,author_id from product where authorid = ${authorID}`;
-    return new Promise((resolve, reject) => {
-        sqlConfig.query(query, (err, result) => {
-          if (err) reject(err);
-          resolve(result.recordset);
-        });
-      });
+    try {
+      const products = await sqlConfig.query(query);
+      return products.recordset;
+    } catch (err) {
+      console.error(
+        `Error occurred while fetching product by authorID: ${err}`
+      );
+      return null;
+    }
   }
 }
 
