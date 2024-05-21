@@ -3,7 +3,7 @@ const peopleRouter = require('./src/routers/people.router');
 const productRouter = require('./src/routers/product.router');
 const authorRouter = require('./src/routers/author.router');
 require('dotenv').config();
-const corsConfig = require('./config/cors')
+const corsConfig = require('./src/config/cors.config')
 const cors = require('cors');
 
 
