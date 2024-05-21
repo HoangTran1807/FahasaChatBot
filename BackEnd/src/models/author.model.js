@@ -10,7 +10,7 @@ class Author {
 
   static async getAll() {
     return new Promise((resolve, reject) => {
-      sqlConfig.query("SELECT * FROM Author", (err, result) => {
+      sqlConfig.query("SELECT id, name, description FROM Author", (err, result) => {
         if (err) reject(err);
         resolve(result.recordset);
       });
