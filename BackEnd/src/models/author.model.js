@@ -36,7 +36,7 @@ class Author {
 
   static getByName(name) {
     const query = `SELECT * FROM Author WHERE name like N'%${name}%'`;
-    console.log(query)
+    //console.log(query)
     return new Promise((resolve, reject) => {
         sqlConfig.query( query, (err, result) => {
             if(err) reject(err);
