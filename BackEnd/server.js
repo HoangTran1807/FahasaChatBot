@@ -1,9 +1,17 @@
 const express = require('express');
-
+const peopleRouter = require('./src/routers/people.router');
+const productRouter = require('./src/routers/product.router');
+const authorRouter = require('./src/routers/author.router');
+require('dotenv').config();
 
 
 const app = express();
-const port = 8084;
+const port =  process.env.PORT || 8084;
+
+app.use('/api/people', peopleRouter);
+app.use('/api/product', productRouter);
+app.use('/api/author', authorRouter);
+
 
 
 

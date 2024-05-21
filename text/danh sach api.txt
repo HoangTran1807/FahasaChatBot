@@ -1,0 +1,27 @@
+sanh sách api
+
+==========   User
+lấy thông tin của một user bằng userid
+http://localhost:8080/api/people/1
+
+
+==========   product
+lấy thông tin về một sản phẩm
+http://localhost:8080/api/product/2
+
+tìm kiếm một cuốn sách bằng tên
+http://localhost:8080/api/product/name/đắc nhân tâm
+
+lấy danh sách các sản phẩm của tác giả có id 
+http://localhost:8080/api/product/author/280
+
+
+==========   author 
+tìm kiếm một tác giả bằng id
+http://localhost:8080/api/author/280
+
+tìm kiếm một tác giả bằng tên
+http://localhost:8080/api/author/name/Trần Thị Hường
+
+
+

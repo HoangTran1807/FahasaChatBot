@@ -1,10 +1,11 @@
 const sql = require('mssql');
+require('dotenv').config()
 
 const config = {
-    user:'Hoang',
-    password:'123',
-    server:'localhost',
-    database:'Fahasa',
+    user: process.env.DB_USER,
+    password: process.env.DB_PASSWORD,
+    server: process.env.DB_SERVER,
+    database: process.env.DB_NAME,
     options: {
         trustServerCertificate: true,
         trustConnection: false,
@@ -21,6 +22,7 @@ sql.connect(config, (err) => {
         return;
     }
     console.log('Connected to database');
+    console.log(config)
 });
 
 module.exports = sql;

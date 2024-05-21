@@ -1,0 +1,6 @@
+chào bạn tôi có thể giúp gì cho bạn
+ - tôi vừa đọc một cuốn sách rất hay bạn có thể đưa tôi một vài cuốn sách khác có nội dung tương tự không
+tất nhiên rồi tôi sẽ gợi ý cho bạn một số cuốn sách tương tự (sử dụng content base để lấy các sách tương tự)
+ - hiển thị một số cuốn sách của tác giả "trang anh"
+một số cuốn sách của tác giả trang anh là : (tìm id của tác giả -> tìm sách có id tác giả = id) nếu có nhiều hơn một tác giả hiện thị ra danh sách tác giả và id của tác giả đó
+
