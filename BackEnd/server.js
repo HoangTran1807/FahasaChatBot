@@ -3,10 +3,19 @@ const peopleRouter = require('./src/routers/people.router');
 const productRouter = require('./src/routers/product.router');
 const authorRouter = require('./src/routers/author.router');
 require('dotenv').config();
+const corsConfig = require('./config/cors')
+const cors = require('cors');
+
+
+
+
 
 
 const app = express();
 const port =  process.env.PORT || 8084;
+
+corsConfig(app);
+app.use(cors());
 
 app.use('/api/people', peopleRouter);
 app.use('/api/product', productRouter);
