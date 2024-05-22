@@ -4,10 +4,10 @@ const router = express.Router();
 const ProductController = require('../controllers/product.controller');
 
 
-router.get('/', ProductController.getAll);
-router.get('/:id', ProductController.getById);
-router.get('/name/:name', ProductController.getByName);
-router.get('/author/:author_id', ProductController.getByAuthorID);
+router.get('/getAll', ProductController.getAll);
+router.get('/getByID', ProductController.getById);
+router.get('/getByName', ProductController.getByName);
+router.get('/getByAuthor', ProductController.getByAuthorID);
 
 
 module.exports = router;

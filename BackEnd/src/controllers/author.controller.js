@@ -2,6 +2,7 @@ const Author = require('../models/author.model');
 
 const getAll = async (req, res) => {
     try {
+        console.log('get all authors');
         const author = await Author.getAll();
         res.json(author);
     } catch (error) {
@@ -11,7 +12,8 @@ const getAll = async (req, res) => {
 
 const getById = async (req, res) => {
     try {
-        const id = req.params.id;
+        const id = req.query.id;
+        console.log('get author info by id', id);
         const author = await Author.getById(id);
         res.json(author);
     } catch (error) {
@@ -21,7 +23,8 @@ const getById = async (req, res) => {
 
 const getByName = async (req, res) => {
     try {
-        const name = req.params.name;
+        const name = req.query.name;
+        console.log('get author info by name', name);
         const author = await Author.getByName(name);
         res.json(author);
     } catch (error) {

@@ -22,7 +22,7 @@ sql.connect(config, (err) => {
         return;
     }
     console.log('Connected to database');
-    console.log(config)
+    //console.log(config)
 });
 
 module.exports = sql;

@@ -2,6 +2,7 @@ const Product = require('../models/product.model');
 
 const getAll = async (req, res) => {
     try {
+        console.log('get all products');
         const product = await Product.getAll();
         res.json(product);
     } catch (error) {
@@ -11,7 +12,8 @@ const getAll = async (req, res) => {
 
 const getById = async (req, res) => {
     try {
-        const id = req.params.id;
+        const id = req.query.id;
+        console.log('get product by id', id);
         const product = await Product.getById(id);
         res.json(product);
     } catch (error) {
@@ -21,7 +23,8 @@ const getById = async (req, res) => {
 
 const getByName = async (req, res) => {
     try {
-        const name = req.params.name;
+        const name = req.query.name;
+        console.log('get product by name', name);
         const product = await Product.getByName(name);
         res.json(product);
     } catch (error) {
@@ -31,7 +34,8 @@ const getByName = async (req, res) => {
 
 const getByAuthorID = async (req, res) => {
     try{
-        const author_id = req.params.author_id;
+        const author_id = req.query.author_id;
+        console.log('get product by author id', author_id);
         const products = await Product.getByAuthorID(author_id);
         res.json(products)
     }catch(err){

@@ -24,9 +24,10 @@ class Product {
   }
 
   static async getById(id) {
-    query = `SELECT * FROM Product WHERE id = ${id}`;
+    
+    const query = `SELECT * FROM Product WHERE id = ${id}`;
     try {
-      const product = sqlConfig.query(query);
+      const product = await sqlConfig.query(query);
       return product.recordset;
     } catch (err) {
       console.error(`Error occurred while fetching product by id: ${err}`);
@@ -35,10 +36,9 @@ class Product {
   }
 
   static async getByName(name) {
-    const query = `SELECT * FROM Product WHERE name like N'%${name}%'`;
-
+    const query = `SELECT id, name, price, stockAvailable, supplierid, authorid FROM Product WHERE name like N'%${name}%'`;
     try {
-      const product = sqlConfig.query(query);
+      const product = await sqlConfig.query(query);
       return product.recordset;
     } catch (err) {
       console.error(`Error occurred while fetching product by name: ${err}`);
@@ -47,7 +47,7 @@ class Product {
   }
 
   static async getByAuthorID(authorID) {
-    const query = `select id, name, price, stockAvailable, supplier_id,author_id from product where authorid = ${authorID}`;
+    const query = `select id, name, price, stockAvailable, supplierid, authorid from product where authorid = ${authorID}`;
     try {
       const products = await sqlConfig.query(query);
       return products.recordset;
