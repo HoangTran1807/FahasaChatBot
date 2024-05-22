@@ -2,26 +2,60 @@ sanh sách api
 
 ==========   User
 lấy thông tin của một user bằng userid
-http://localhost:8080/api/people/1
+http://localhost:8080/api/people/getAll
+http://localhost:8080/api/people/getByID?id=12
 
 
 ==========   product
 lấy thông tin về một sản phẩm
-http://localhost:8080/api/product/2
+http://localhost:8080/api/product/getAll
+
 
 tìm kiếm một cuốn sách bằng tên
-http://localhost:8080/api/product/name/đắc nhân tâm
+http://localhost:8080/api/product/getByName?name=đắc nhân tâm
+
+tìm một cuốn sách bằng id
+http://localhost:8080/api/product/getByID?id=2
 
 lấy danh sách các sản phẩm của tác giả có id 
-http://localhost:8080/api/product/author/280
+http://localhost:8080/api/product/getByAuthor?author_id=269
 
 
 ==========   author 
 tìm kiếm một tác giả bằng id
-http://localhost:8080/api/author/280
+http://localhost:8080/api/author/getByID?id=269
 
 tìm kiếm một tác giả bằng tên
-http://localhost:8080/api/author/name/Trần Thị Hường
+http://localhost:8080/api/author/getByName?name=trần 
 
 
 
+==================================================================
+
+==========   User
+lấy thông tin của một user bằng userid
+https://fahasachatbot.onrender.com/api/people/getAll
+https://fahasachatbot.onrender.com/api/people/getByID?id=12
+
+
+==========   product
+lấy thông tin về một sản phẩm
+https://fahasachatbot.onrender.com/api/product/getAll
+
+
+tìm kiếm một cuốn sách bằng tên
+https://fahasachatbot.onrender.com/api/product/getByName?name=đắc nhân tâm
+
+tìm một cuốn sách bằng id
+https://fahasachatbot.onrender.com/api/product/getByID?id=2
+
+lấy danh sách các sản phẩm của tác giả có id 
+https://fahasachatbot.onrender.com/api/product/getByAuthor?author_id=269
+
+
+==========   author 
+tìm kiếm một tác giả bằng id
+https://fahasachatbot.onrender.com/api/author/getByID?id=269
+
+tìm kiếm một tác giả bằng tên
+https://fahasachatbot.onrender.com/api/author/getByName?name=trần 
