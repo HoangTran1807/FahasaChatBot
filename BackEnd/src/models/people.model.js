@@ -26,6 +26,19 @@ class People{
 
     }
 
+    static async getByUserName(userName){
+        const query = `SELECT * FROM People WHERE username = N'${userName}'`;
+        console.log(query);
+        try{
+            const people = await sqlConfig.query(query);
+            if(people.recordset[0] == null) return null;
+            return people.recordset;
+        } catch (error) {
+            console.error(`Error occurred while fetching people by userName: ${error}`);
+            return null;
+        }
+    }
+
 
 }
 

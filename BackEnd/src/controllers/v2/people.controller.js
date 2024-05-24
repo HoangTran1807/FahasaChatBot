@@ -33,8 +33,26 @@ const getById = async (req, res) => {
     }
 }
 
+const getByUserName = async (req, res) => {
+    try {
+        const userName = req.query.username;
+        console.log('get people info by userName', userName);
+        const people = await People.getByUserName(userName);
+        data = 
+        {
+            status: 200,
+            message: 'Success',
+            data: people
+        }
+        res.json(data);
+    } catch (error) {
+        res.status(500).send(error.message);
+    }
+}
+
 
 module.exports = {
     getAll,
-    getById
+    getById,
+    getByUserName
 }
