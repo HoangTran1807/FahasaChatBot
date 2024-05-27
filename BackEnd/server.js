@@ -7,6 +7,7 @@ const productRouter_v2 = require('./src/routers/v2/product.router');
 const peopleRouter_v2 = require('./src/routers/v2/people.router');
 const discountRouter_v2 = require('./src/routers/v2/discount.router');
 const CartRouter = require('./src/routers/v2/Cart.router');
+
 require('dotenv').config();
 const cors = require('cors');
 
@@ -16,6 +17,7 @@ const cors = require('cors');
 
 
 const app = express();
+
 app.use(express.json());
 const port =  process.env.PORT || 8084;
 

@@ -6,7 +6,7 @@ const router = express.Router();
 
 
 router.get('/getByID', CartController.getCardById);
-router.get('/CreateCart', CartController.createCard);
+router.post('/CreateCart', CartController.createCard);
 
 
 module.exports = router;
