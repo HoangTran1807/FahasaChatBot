@@ -21,7 +21,11 @@ const transporter = nodemailer.createTransport({
             text: text,
         };
         await transporter.sendMail(mailOptions);
-        res.status(200).send('Email sent');
+        data ={
+            message: "Success",
+            status: 200,
+        }
+        res.json(data);
     } catch (error) {
         res.status(500).send(error)
     }
