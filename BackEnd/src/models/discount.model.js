@@ -34,7 +34,7 @@ class Discount {
     }
 
     static async getUseAbleDiscount() {
-        const query = `select * from Discount as ds where ds.DateStart < GETDATE() and ds.DateExpired > GETDATE() and ds.Used < ds.LimitUsed`;
+        const query = `select * from Discount as ds where ds.DateStart < GETDATE() and ds.DateExpired > GETDATE() and ds.Used < ds.Amount`;
        try{
         const discount = await sqlConfig.query(query);
         if (discounts.recordset.length === 0) return null;

@@ -58,4 +58,26 @@ tìm kiếm một tác giả bằng id
 https://fahasachatbot.onrender.com/api/author/getByID?id=269
 
 tìm kiếm một tác giả bằng tên
-https://fahasachatbot.onrender.com/api/author/getByName?name=trần 
+https://fahasachatbot.onrender.com/api/author/getByName?name=trần
+
+
+========== Discount 
+lấy các mã giảm giá đang khả dụng
+
+
+
+
+========= Cart
+kiểm tra giỏ hàng của tôi
+https://fahasachatbot.onrender.com/api/v2/cart/getByID?id=1
+
+thêm một sản phẩm vào giỏ hàng
+https://fahasachatbot.onrender.com/api/v2/cart/CreateCart
+body
+{
+    "userid": "1",
+    "productid": "111",
+    "quantity": 1
+}
+
+
