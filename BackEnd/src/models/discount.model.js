@@ -37,11 +37,11 @@ class Discount {
         const query = `select * from Discount as ds where ds.DateStart < GETDATE() and ds.DateExpired > GETDATE() and ds.Used < ds.Amount`;
        try{
         const discount = await sqlConfig.query(query);
-        if (discounts.recordset.length === 0) return null;
+        if(discount.recordset.length === 0) return null;
         return discount.recordset;
        }
          catch (error) {
-          console.error(`Error occurred while fetching discount by id: ${error}`);
+          console.error(`Not useable discount avalible: ${error}`);
           return null;
         }
     }

@@ -16,6 +16,7 @@ class Cart {
     static async createCard(userid, productid, quantity) {
         const query = `INSERT INTO Cart (userid, productid, Amount
         ) VALUES (${userid}, ${productid}, ${quantity})`;
+        console.log(query);
         try {
             const card = await sqlConfig.query(query);
             console.log(card);

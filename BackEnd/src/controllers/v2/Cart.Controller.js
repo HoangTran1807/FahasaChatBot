@@ -23,7 +23,14 @@ class CartController {
     }
 
     static async createCard(req, res) {
-        const { userid, productid, quantity } = req.body;
+
+        const userid = req.body.userid;
+        const productid = req.body.productid;
+        const quantity = req.body.quantity;
+
+        console.log(req.body);
+
+
         try {
             const card = await Cart.createCard(userid, productid, quantity);
             if (card === true) {
