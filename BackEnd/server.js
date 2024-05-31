@@ -7,6 +7,8 @@ const productRouter_v2 = require('./src/routers/v2/product.router');
 const peopleRouter_v2 = require('./src/routers/v2/people.router');
 const discountRouter_v2 = require('./src/routers/v2/discount.router');
 const CartRouter = require('./src/routers/v2/Cart.router');
+const orderRouter = require('./src/routers/v2/order.router');
+const nodemailerRouter = require('./src/routers/v2/nodeMailer.router');
 
 require('dotenv').config();
 const cors = require('cors');
@@ -19,6 +21,10 @@ const cors = require('cors');
 const app = express();
 
 app.use(express.json());
+app.use(cors());
+app.use(express.urlencoded({ extended: true }));
+
+
 const port =  process.env.PORT || 8084;
 
 app.use(function(req, res, next) {
@@ -39,6 +45,8 @@ app.use('/api/v2/product', productRouter_v2);
 app.use('/api/v2/author', authorRouter_v2);
 app.use('/api/v2/discount', discountRouter_v2);
 app.use('/api/v2/cart', CartRouter);
+app.use('/api/v2/order', orderRouter);
+app.use('/api/v2/nodemailer', nodemailerRouter);
 
 
 

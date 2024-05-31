@@ -81,3 +81,19 @@ body
 }
 
 
+
+-mailer cho agent 
+http://localhost:8080/api/v2/nodemailer/send
+{
+    to: '',
+    subject: '',
+    text: ''
+}
+
+- get order
+http://localhost:8080/api/v2/order/
+- getbyid
+http://localhost:8080/api/v2/order/1
+- getorderbyuserid
+http://localhost:8080/api/v2/order/user/:userid
+
