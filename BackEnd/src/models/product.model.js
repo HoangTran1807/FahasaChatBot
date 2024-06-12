@@ -13,7 +13,7 @@ class Product {
 
   static async getAll() {
     const query =
-      "SELECT id, name, price, stockAvailable, supplierid, authorid FROM Product";
+      "SELECT id, name, price, stockAvailable, supplierid, authorid, Discount FROM Product";
     try {
       const products = await sqlConfig.query(query);
       return products.recordset;
@@ -36,7 +36,7 @@ class Product {
   }
 
   static async getByName(name) {
-    const query = `SELECT id, name, price, stockAvailable, supplierid, authorid FROM Product WHERE name like N'%${name}%'`;
+    const query = `SELECT id, name, price, stockAvailable, supplierid, authorid, Discount FROM Product WHERE name like N'%${name}%'`;
     try {
       const product = await sqlConfig.query(query);
       return product.recordset;
@@ -47,7 +47,7 @@ class Product {
   }
 
   static async getByAuthorID(authorID) {
-    const query = `select id, name, price, stockAvailable, supplierid, authorid from product where authorid = ${authorID}`;
+    const query = `select id, name, price, stockAvailable, supplierid, authorid, Discount from product where authorid = ${authorID}`;
     try {
       const products = await sqlConfig.query(query);
       return products.recordset;
