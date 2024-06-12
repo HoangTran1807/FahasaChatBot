@@ -8,6 +8,7 @@ const getAll = async (req, res) => {
         {
             status: 200,
             message: 'Success',
+            
             data: author
         }
         res.json(data);
